@@ -43,8 +43,8 @@ void check_balance(){
 void transfer_money(){
     int from_account, to_account;
     float amount;
-    int found_from = 0, found_to = 0;
-
+    int found_from = 0;
+    int found_to = 0;
     printf("Enter Source Account Number: ");
     scanf("%d", &from_account);
     printf("Enter Destination Account Number: ");
@@ -55,7 +55,8 @@ void transfer_money(){
         if (account[i].account_number == from_account) {
             found_from = 1;
             break;
-        } else {
+        } 
+        else {
             printf("Insufficient balance in source account.\n");
             return;
         }
@@ -74,10 +75,8 @@ void deduct_money(){
     scanf("%d", &account_number);
     printf("Enter amount to deduct: ");
     scanf("%f", &amount);
-
     for (int i = 0; i < account_count; i++) {
         if (account[i].account_number == account_number) {
-
             found = 1;
             printf("Money deducted successfully. Current balance: %.2f\n");
         } else {
@@ -91,10 +90,8 @@ void deduct_money(){
 }
 void close_account(){
     int account_number, found = 0;
-
     printf("Enter Account Number to close: ");
     scanf("%d", &account_number);
-
     for (int i = 0; i < account_count; i++) {
         if (account[i].account_number == account_number) {
             account_count--;
@@ -103,7 +100,6 @@ void close_account(){
             break;
         }
     }
-
     if (!found) {
         printf("Account not found.\n");
     }
